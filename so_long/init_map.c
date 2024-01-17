@@ -6,11 +6,12 @@
 /*   By: abolea <abolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 12:46:12 by abolea            #+#    #+#             */
-/*   Updated: 2024/01/10 16:39:25 by abolea           ###   ########.fr       */
+/*   Updated: 2024/01/17 16:41:22 by abolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include <stdio.h>
 
 int	get_col(char *name, t_game *val)
 {

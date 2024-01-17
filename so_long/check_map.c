@@ -6,11 +6,12 @@
 /*   By: abolea <abolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 16:22:47 by abolea            #+#    #+#             */
-/*   Updated: 2024/01/10 16:39:05 by abolea           ###   ########.fr       */
+/*   Updated: 2024/01/17 16:40:30 by abolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include<stdio.h>
 
 int	check_exit(t_game *val)
 {
@@ -64,35 +65,37 @@ int	check_player(t_game *val)
 	return (1);
 }
 
-int	check_collec(t_game *val)
+int check_collec(t_game *val)
 {
-	int	i;
-	int	j;
-	int	c;
+    int i;
+    int j;
+    int c;
 
-	i = 0;
-	c = 0;
-	while (i < val->height)
-	{
-		j = 0;
-		while (j < val->width)
-		{
-			if (val->map[i][j] == 'C')
-				c++;
-			j++;
-		}
-		i++;
-	}
-	if (c < 1)
-		return (-1);
-	return (c);
+    i = 0;
+    c = 0;
+    while (i < val->height)
+    {
+        j = 0;
+        while (j < val->width)
+        {
+            if (val->map[i][j] == 'C')
+                c++;
+            j++;
+        }
+        i++;
+    }
+    if (c < 1)
+        return (-1);
+    val->nb_c = c;
+    return (c);
 }
+
 
 void	flood_fill(char **copy, int x, int y)
 {
-	if (copy[x][y] != '1' && copy[x][y] != 'V')
+	if (copy[y][x] != '1' && copy[y][x] != 'V')
 	{
-		copy[x][y] = 'V';
+		copy[y][x] = 'V';
 		flood_fill(copy, x + 1, y);
 		flood_fill(copy, x - 1, y);
 		flood_fill(copy, x, y + 1);
