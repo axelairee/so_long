@@ -6,12 +6,11 @@
 /*   By: abolea <abolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 15:46:45 by abolea            #+#    #+#             */
-/*   Updated: 2024/01/17 16:48:50 by abolea           ###   ########.fr       */
+/*   Updated: 2024/01/17 17:20:38 by abolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include <stdio.h>
 
 int	close_window(t_game *val)
 {
@@ -72,10 +71,7 @@ void	move_up(t_game *val)
 		put_playeru(val);
 	}
 	if (val->map[val->pos_y][val->pos_x] == 'E' && val->nb_c == 0)
-	{
-		mlx_put_image_to_window(val->mlx, val->win, val->img_end, 0, 0);
-//		close_window(val);
-	}
+		close_window(val);
 }
 
 
@@ -101,10 +97,7 @@ void	move_down(t_game *val)
 		put_playerd(val);
 	}
 	if (val->map[val->pos_y][val->pos_x] == 'E' && val->nb_c == 0)
-	{
-		mlx_put_image_to_window(val->mlx, val->win, val->img_end, 0, 0);
-//		close_window(val);
-	}
+		close_window(val);
 }
 
 void	move_left(t_game *val)
@@ -127,10 +120,7 @@ void	move_left(t_game *val)
 		put_playerl(val);
 	}
 	else if (val->map[val->pos_y][val->pos_x] == 'E' && val->nb_c == 0)
-	{
-		mlx_put_image_to_window(val->mlx, val->win, val->img_end, 0, 0);
-//		close_window(val);
-	}
+		close_window(val);
 }
 
 void	move_right(t_game *val)
@@ -155,17 +145,13 @@ void	move_right(t_game *val)
 		put_player(val);
 	}
 	if (val->map[val->pos_y][val->pos_x] == 'E' && val->nb_c == 0)
-	{
-		mlx_put_image_to_window(val->mlx, val->win, val->img_end, 0, 0);
-//		close_window(val);
-	}
+		close_window(val);
 }
 
 void	if_wall(t_game *val)
 {
 	put_ground(val, val->pos_y, val->pos_x + 1);
 	val->move++;
-	printf("\nmove : %d\n", val->move);
 }
 
 void	if_collec(t_game *val)
@@ -175,7 +161,6 @@ void	if_collec(t_game *val)
 	put_player(val);
 	collec_count(val);
 	val->move++;
-	printf("\nmove : %d\n", val->move);
 }
 
 int	sup_player(t_game *val)
@@ -204,7 +189,6 @@ int	sup_player(t_game *val)
 void	collec_count(t_game *val)
 {
 	val->nb_c -= 1;
-	printf("\nnb de collectibles restants : %d\n", val->nb_c);
 	if (val->nb_c == 0)
 		put_exit2(val);
 }
@@ -213,6 +197,29 @@ int keypressed(int keycode, void *param)
 {
     t_game *val = (t_game *)param;
 	key_select(keycode, val);
-	mlx_string_put(val->mlx, val->win, 20, 20, 000000, ft_itoa(val->move));
-    return (1);
+	put_px(val);
+	mlx_string_put(val->mlx, val->win, 30, 34, 0x000000, "move : ");
+	mlx_string_put(val->mlx, val->win, 75, 34, 0x000000, ft_itoa(val->move));
+	mlx_string_put(val->mlx, val->win, 95, 34, 0x000000, "collectibles restants : ");
+	mlx_string_put(val->mlx, val->win, 240, 34, 0x000000, ft_itoa(val->nb_c));
+	return(1);
+}
+
+void	put_px(t_game *val)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (i < 240) 
+	{
+    	j = 0;
+    	while (j < 20) 
+		{
+        	mlx_pixel_put(val->mlx, val->win, 20 + i, 20 + j, 0xCCCCCC);
+        j++;
+    	}
+    i++;
+}
+
 }

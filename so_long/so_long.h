@@ -6,7 +6,7 @@
 /*   By: abolea <abolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 12:05:08 by abolea            #+#    #+#             */
-/*   Updated: 2024/01/17 16:50:49 by abolea           ###   ########.fr       */
+/*   Updated: 2024/01/17 17:08:39 by abolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,6 @@ void	if_collec(t_game *val);
 void	if_wall(t_game *val);
 char	*ft_itoa(int n);
 void	*ft_calloc(size_t memnb, size_t size);
+void	put_px(t_game *val);
 
 #endif
