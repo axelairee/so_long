@@ -6,7 +6,7 @@
 /*   By: abolea <abolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 16:25:10 by abolea            #+#    #+#             */
-/*   Updated: 2024/01/19 15:03:30 by abolea           ###   ########.fr       */
+/*   Updated: 2024/01/19 17:00:20 by abolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,25 +49,25 @@ void	put_px(t_game *val)
 	int	j;
 
 	i = 0;
-	while (i < 240) 
+	while (i < 240)
 	{
 		j = 0;
-		while (j < 20) 
+		while (j < 20)
 		{
 			mlx_pixel_put(val->mlx, val->win, 20 + i, 20 + j, 0xCCCCCC);
-		j++;
+			j++;
 		}
-	i++;
+		i++;
 	}
 }
 
 int	close_window(t_game *val)
 {
+	mlx_clear_window(val->mlx, val->win);
+	mlx_destroy_window(val->mlx, val->win);
 	free_map(val);
 	destroy_image(val);
 	free(val->mlx);
 	free(val->win);
-	mlx_clear_window(val->mlx, val->win);
-	mlx_destroy_window(val->mlx, val->win);
 	return (1);
 }

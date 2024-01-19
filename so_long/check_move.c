@@ -6,7 +6,7 @@
 /*   By: abolea <abolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 11:27:54 by abolea            #+#    #+#             */
-/*   Updated: 2024/01/19 14:59:18 by abolea           ###   ########.fr       */
+/*   Updated: 2024/01/19 16:47:54 by abolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	keypressed(int keycode, void *param)
 	mlx_string_put(val->mlx, val->win, 30, 34, 0x000000, "move : ");
 	mlx_string_put(val->mlx, val->win, 75, 34, 0x000000, ft_itoa(val->move));
 	mlx_string_put(val->mlx, val->win, 95, \
-	34, 0x000000, "collectibles restants : ");
+	34, 0x000000, "remaining collectibles : ");
 	mlx_string_put(val->mlx, val->win, 240, 34, 0x000000, ft_itoa(val->nb_c));
 	return (1);
 }
