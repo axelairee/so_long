@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abolea <abolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/10 16:21:33 by abolea            #+#    #+#             */
-/*   Updated: 2024/01/19 16:22:04 by abolea           ###   ########.fr       */
+/*   Created: 2023/11/07 11:36:58 by abolea            #+#    #+#             */
+/*   Updated: 2023/11/27 18:47:24 by abolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "ft_printf.h"
 
-int	main(int argc, char	**argv)
+char	*ft_strchr(const char *s, int c)
 {
-	t_game	val;
-
-	if (argc != 2)
-		return (0);
-	if (return_error(argv[1], &val) == 1){
-		init_window(&val);
-		}
-	else
+	while (*s != '\0')
 	{
-		ft_printf("Error\nErreur de map");
-		return (0);
+		if (*s == (unsigned char)c)
+			return ((char *)s);
+		s++;
 	}
-	free_map(&val);
-	return (0);
+	if ((unsigned char)c == '\0')
+		return ((char *)s);
+	return (NULL);
 }

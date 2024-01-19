@@ -6,7 +6,7 @@
 /*   By: abolea <abolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 21:59:51 by abolea            #+#    #+#             */
-/*   Updated: 2024/01/09 17:56:14 by abolea           ###   ########.fr       */
+/*   Updated: 2024/01/18 17:37:49 by abolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*get_next_line(int fd)
 		ft_memcpy(buff + 0, buff + ft_check_buff(buff, 2));
 		line = ft_strjoin(line, buff);
 		if (!line)
-			return(free(line), NULL);
+			return (free(line), NULL);
 		check_buff = ft_check_buff(buff, 1);
 		if (buff[check_buff] == '\n')
 			return (line);
@@ -67,7 +67,7 @@ char	*print_line(char *line, char *buff, int *check_buff, int fd)
 	{
 		line = ft_strjoin(line, buff);
 		if (!line)
-			return(free(line), NULL);
+			return (free(line), NULL);
 	}
 	else
 	{
@@ -75,13 +75,13 @@ char	*print_line(char *line, char *buff, int *check_buff, int fd)
 		{
 			line = ft_strjoin(line, buff);
 			if (!line)
-				return(free(line), NULL);
+				return (free(line), NULL);
 			buff[read(fd, buff, BUFFER_SIZE)] = 0;
 			*check_buff = ft_check_buff(buff, 1);
 		}
 		line = ft_strjoin(line, buff);
 		if (!line)
-			return(free(line), NULL);
+			return (free(line), NULL);
 	}
 	return (line);
 }
@@ -111,4 +111,3 @@ char	*ft_strjoin(char *s1, char *s2)
 	s3[i] = '\0';
 	return (free(s1), s3);
 }
-

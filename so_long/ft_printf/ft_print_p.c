@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_print_p.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abolea <abolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/10 16:21:33 by abolea            #+#    #+#             */
-/*   Updated: 2024/01/19 16:22:04 by abolea           ###   ########.fr       */
+/*   Created: 2023/11/22 11:44:05 by abolea            #+#    #+#             */
+/*   Updated: 2023/11/28 10:35:23 by abolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "ft_printf.h"
 
-int	main(int argc, char	**argv)
+unsigned long	ft_print_p(unsigned long args)
 {
-	t_game	val;
+	char	*base;
 
-	if (argc != 2)
-		return (0);
-	if (return_error(argv[1], &val) == 1){
-		init_window(&val);
-		}
-	else
+	base = "0123456789abcdef";
+	if (!args)
 	{
-		ft_printf("Error\nErreur de map");
-		return (0);
+		if (ft_putstr_fd("(nil)", 1) < 0)
+			return (-1);
+		return (5);
 	}
-	free_map(&val);
-	return (0);
+	if (write(1, "0x", 2) < 0)
+		return (-1);
+	return (ft_putnbr_base(args, base, 1) + 2);
 }

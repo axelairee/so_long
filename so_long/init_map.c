@@ -6,12 +6,11 @@
 /*   By: abolea <abolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 12:46:12 by abolea            #+#    #+#             */
-/*   Updated: 2024/01/17 16:41:22 by abolea           ###   ########.fr       */
+/*   Updated: 2024/01/19 16:22:17 by abolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include <stdio.h>
 
 int	get_col(char *name, t_game *val)
 {
@@ -121,7 +120,7 @@ int	get_map(char *name, t_game *val)
 int	return_error(char *name, t_game *val)
 {
 	if (get_col(name, val) == -1)
-		return (free_map(val), -1);
+		return (-1);
 	else if (get_map(name, val) == -1)
 		return (free_map(val), -1);
 	else if (wall_error(val) == -1)
@@ -136,7 +135,6 @@ int	return_error(char *name, t_game *val)
 		return (free_map(val), -1);
 	else if (check_way(val) == -1)
 		return (free_map(val), -1);
-	free_map(val);
 	if (get_map(name, val) == -1)
 		return (free_map(val), -1);
 	return (1);

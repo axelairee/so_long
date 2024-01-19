@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr_u.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abolea <abolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/10 16:21:33 by abolea            #+#    #+#             */
-/*   Updated: 2024/01/19 16:22:04 by abolea           ###   ########.fr       */
+/*   Created: 2023/11/27 17:59:01 by abolea            #+#    #+#             */
+/*   Updated: 2023/11/27 19:16:38 by abolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "ft_printf.h"
 
-int	main(int argc, char	**argv)
+unsigned int	ft_putnbr_u(unsigned int n, int fd, int *i)
 {
-	t_game	val;
+	int	temp;
 
-	if (argc != 2)
-		return (0);
-	if (return_error(argv[1], &val) == 1){
-		init_window(&val);
-		}
-	else
+	temp = 0;
+	if (n < 0)
 	{
-		ft_printf("Error\nErreur de map");
-		return (0);
+		if (ft_putstr_fd("(nil)", 1) < 0)
+			return (-1);
+		return (5);
 	}
-	free_map(&val);
-	return (0);
+	if (n >= 10)
+		ft_putnbr_fd(n / 10, fd, i);
+	if (ft_putchar_fd((n % 10) + '0', fd) < 0)
+		return (-1);
+	(*i)++;
+	return (*i);
 }

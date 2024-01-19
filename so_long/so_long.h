@@ -6,7 +6,7 @@
 /*   By: abolea <abolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 12:05:08 by abolea            #+#    #+#             */
-/*   Updated: 2024/01/17 17:08:39 by abolea           ###   ########.fr       */
+/*   Updated: 2024/01/19 11:40:20 by abolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <math.h>
 # include "minilibx-linux/mlx.h"
 # include "get_next_line.h"
+# include "ft_printf/ft_printf.h"
 
 typedef struct game
 {
@@ -27,27 +28,20 @@ typedef struct game
 	int		pos_y;
 	int		nb_c;
 	int		move;
-    void 	*mlx;
-    void 	*win;
-	void 	*img_player;
-	void 	*img_collec;
-	void 	*img_exit;
-	void 	*img_exit1;
-	void 	*img_ground;
-	void 	*img_wall;
+	void	*mlx;
+	void	*win;
+	void	*img_player;
+	void	*img_collec;
+	void	*img_exit;
+	void	*img_exit1;
+	void	*img_ground;
+	void	*img_wall;
 	void	*img_playerd;
 	void	*img_playeru;
 	void	*img_playerl;
-	void	*img_end;
-	void	*img_enemyl;
-	void	*img_enemyr;
-	void	*img_enemyu;
-	void	*img_enemyd;
 	int		epos_x;
 	int		epos_y;
 }	t_game;
-
-
 
 size_t	ft_strlen(const char *s);
 int		get_col(char *name, t_game *test);
@@ -91,5 +85,8 @@ void	if_wall(t_game *val);
 char	*ft_itoa(int n);
 void	*ft_calloc(size_t memnb, size_t size);
 void	put_px(t_game *val);
+int		init_img2(t_game *val);
+void	destroy_image(t_game *val);
+int		init_img3(t_game *val);
 
 #endif

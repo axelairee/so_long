@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abolea <abolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/10 16:21:33 by abolea            #+#    #+#             */
-/*   Updated: 2024/01/19 16:22:04 by abolea           ###   ########.fr       */
+/*   Created: 2023/11/07 16:10:09 by abolea            #+#    #+#             */
+/*   Updated: 2023/11/27 19:21:59 by abolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "ft_printf.h"
 
-int	main(int argc, char	**argv)
+size_t	ft_strlen(const char *s)
 {
-	t_game	val;
+	size_t	i;
 
-	if (argc != 2)
-		return (0);
-	if (return_error(argv[1], &val) == 1){
-		init_window(&val);
-		}
-	else
-	{
-		ft_printf("Error\nErreur de map");
-		return (0);
-	}
-	free_map(&val);
-	return (0);
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }

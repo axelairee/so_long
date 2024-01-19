@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abolea <abolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/10 16:21:33 by abolea            #+#    #+#             */
-/*   Updated: 2024/01/19 16:22:04 by abolea           ###   ########.fr       */
+/*   Created: 2023/11/16 00:38:56 by abolea            #+#    #+#             */
+/*   Updated: 2023/11/27 18:47:21 by abolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "ft_printf.h"
 
-int	main(int argc, char	**argv)
+int	ft_putstr_fd(char *s, int fd)
 {
-	t_game	val;
-
-	if (argc != 2)
-		return (0);
-	if (return_error(argv[1], &val) == 1){
-		init_window(&val);
-		}
-	else
+	if (!s)
 	{
-		ft_printf("Error\nErreur de map");
-		return (0);
+		if (ft_putstr_fd("(null)", 1) < 0)
+			return (-1);
+		return (6);
 	}
-	free_map(&val);
-	return (0);
+	if (write(fd, s, ft_strlen(s)) < 0)
+		return (-1);
+	return (ft_strlen(s));
 }
